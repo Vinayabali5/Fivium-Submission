@@ -1,0 +1,80 @@
+package com.fivium.recruitment.controller;
+
+import com.fivium.recruitment.service.StringParsingService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import java.util.Collections;
+import java.util.Arrays;
+import java.io.*; 
+import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+@RestController
+public class StringController {
+
+  private final StringParsingService stringParsingService;
+
+  public StringController(StringParsingService stringParsingService) {
+    this.stringParsingService = stringParsingService;
+  }
+
+  @GetMapping("/reverse")
+  public String reverseString(@RequestParam("input") String input) {
+    return stringParsingService.reverseString(input);
+  }
+		
+  @GetMapping("/unique")
+  public Map<String, Integer> uniqueWordString(@RequestParam("input") String input) {
+	  return stringParsingService.countAndPrintRepeatedWordOccurences(input);	  
+  }
+  
+//  @GetMapping("/unique")
+//  public Map<String, Integer> countAndPrintRepeatedWordOccurences(@RequestParam("input") 
+//          String strContent) {
+//
+//      // Step 1: create Map of String-Integer
+//      Map<String, Integer> mapOfRepeatedWord = 
+//              new LinkedHashMap<String, Integer>();
+//
+//      // Step 2: split line using space as delimiter
+//      String[] words = strContent.split(" ");
+//
+//      // Step 3: iterate through String[] array
+//      for(String word : words) {
+//
+//          // Step 4: convert all String into lower case, 
+//          // before comparison
+//          String tempUCword = word.toLowerCase();
+//
+//          // Step 5: check whether Map contains particular word 
+//          if(mapOfRepeatedWord.containsKey(tempUCword)){
+//              // Step 6: If contains, increase count value by 1
+//              mapOfRepeatedWord.put(tempUCword, 
+//                      mapOfRepeatedWord.get(tempUCword) + 1);
+//          } 
+//          else {
+//              // Step 7: otherwise, make a new entry
+//              mapOfRepeatedWord.put(tempUCword, 1);
+//          }
+//      }
+//
+//      // Step 8: print word along with its count
+//      for(Map.Entry<String, Integer> entry : 
+//          mapOfRepeatedWord.entrySet()){
+//      }
+//
+//      return mapOfRepeatedWord;
+//  }
+  
+	 
+
+
+}

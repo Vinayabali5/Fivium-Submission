@@ -1,0 +1,29 @@
+package com.fivium.recruitment.service;
+
+import org.springframework.stereotype.Service;
+import java.io.*; 
+import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.HashMap;
+import java.util.Map;
+
+@Service
+public class StringParsingService {
+
+  public String reverseString(String input) {
+    return new StringBuilder(input).reverse().toString();
+  }
+  
+  public static void findWords(String s, List<String> output, List<Integer> count){
+	    String[] words = s.split(" ");
+	    Map<String, Integer> map = new LinkedHashMap<>();
+	    Arrays.stream(words).forEach(
+	    		e-> map.put(e, map.getOrDefault(e, 0) + 1));
+	    map.forEach((k,v)->{
+	        output.add(k);
+	        count.add(v);
+	    });
+	}
+  
+	 
+  }    
